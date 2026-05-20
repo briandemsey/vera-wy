@@ -197,40 +197,8 @@ def load_el_growth_data():
 # ============================================================================
 
 def check_password():
-    if 'authenticated' not in st.session_state:
-        st.session_state.authenticated = False
-    if st.session_state.authenticated:
-        return True
-
-    st.markdown(f"""
-    <div style="text-align: center; padding: 60px 20px;">
-        <h1 style="color: {WY_BLUE}; font-size: 3rem; margin-bottom: 10px;">VERA-WY</h1>
-        <p style="color: #666; font-size: 1.1rem; margin-bottom: 40px;">
-            Verification Engine for Results &amp; Accountability<br>Wyoming Implementation
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        password = st.text_input("Enter access code:", type="password", key="pw")
-        if st.button("Access VERA-WY", use_container_width=True):
-            if password == APP_PASSWORD:
-                st.session_state.authenticated = True
-                st.rerun()
-            else:
-                st.error("Invalid access code")
-
-    st.markdown(f"""
-    <div style="text-align: center; margin-top: 60px; color: #999; font-size: 0.85rem;">
-        <p>VERA-WY analyzes ACCESS for ELLs domain data and WY-TOPP results across 48 Wyoming districts.</p>
-        <p>~3,500 English Learners | ~3.8% statewide</p>
-        <p>Top district: Laramie County #1 (Cheyenne) | Teton County #1 (Jackson) 15% EL</p>
-        <p>Energy boom/bust EL instability | "Basket of goods" funding | Data: edu.wyoming.gov</p>
-        <p style="margin-top: 10px;">Contact: brian@h-edu.solutions</p>
-    </div>
-    """, unsafe_allow_html=True)
-    return False
+    st.session_state.authenticated = True
+    return True
 
 
 # ============================================================================
